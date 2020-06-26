@@ -9,9 +9,7 @@ class Game {
 		this.codeNamesArray = ['black', 'toronto', 'dog', 'elephant', 'wheel', 'foot', 'pencil', 'monitor', 'straw', 'ham', 'cup', 'speaker', 'tin', 'telescope', 'chips', 'table', 'almonds', 'cat', 'apple', 'ball', 'airplane', 'light', 'letter', 'tube', 'plant', 'twig', 'keys', 'snow', 'water', 'clouds', 'bird', 'snorkel', 'soccer', 'japan', 'frog', 'jump', 'volcano', 'hiking', 'trumpet', 'voting', 'bar', 'beer', 'nail', 'marker', 'bookshelf', 'peach', 'beach', 'sand', 'airplane', 'fall', 'spring', 'voltage', 'box', 'sun', 'string', 'toothbrush', 'salon', 'basket', 'tunnel'];
 		this.typeArray = ['red', 'red', 'red', 'red', 'red', 'red', 'red', 'red', 'red', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'black' ];
 		this.cards = [];
-
-
-
+		
 
 		// Shuffle order of codes and card types:
 		this.shuffle(this.codeNamesArray);

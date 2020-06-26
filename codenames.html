@@ -17,9 +17,9 @@
 			<h1>Codenames</h1>
 
 			<div id="game-nav">
-				<button>New Game</button>
+				<button v-on:click="clickNewGame()">New Game</button>
 				<span id="currentTurn">{{this.currentTurn}}'s turn</span>
-				<button id="switchTurn">Switch Turn</button>
+				<button id="switchTurn" v-on:click="clickSwitchTurn()">Switch Turn</button>
 			</div>
 
 
@@ -34,7 +34,7 @@
 			</button>
 
 			<div id="bottom-nav">
-				<button>Code Master</button>
+				<button v-on:click="clickCodeMaster()">Code Master</button>
 			</div>
 
 		</div>
@@ -82,18 +82,43 @@
 						cardDiv.classList.add("deathCard");
 					}
 
-
-					// this.isClicked = true;
-					// return this.isClicked;
 				},
 
-				// randomCodeName: function () {
-				// 	if (this.code === "") {
-				// 		var codeIndex = Math.floor(Math.random() * this.codeNamesArray.length);
-				// 		this.code = this.codeNamesArray[codeIndex];
-				// 		console.log(this.code);
-				// 	}
-				// }
+				clickNewGame: function () {
+					window.location.reload();
+				},
+
+				clickCodeMaster: function () {
+
+					console.log(this.cards);
+
+					for (let i = 0; i < this.cards.length; i++) {
+						console.log(this.cards[i].type);
+
+						let cardType = this.cards[i].type;
+
+						if (cardType === "red") {
+							document.getElementById(i).classList.add("redCard")
+						}
+
+						if (cardType === "blue") {
+							document.getElementById(i).classList.add("blueCard");
+						}
+
+						if (cardType === "neutral") {
+							document.getElementById(i).classList.add("neutralCard");
+						}
+
+						if (cardType === "black") {
+							document.getElementById(i).classList.add("deathCard");
+						}
+
+					}
+				},
+
+				clickSwitchTurn: function () {
+					(this.currentTurn === Game.blue ) ? (this.currentTurn = Game.red) : (this.currentTurn = Game.blue);
+				},
 
 
 			}
