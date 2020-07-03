@@ -1,38 +1,94 @@
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
 
 * {
 	box-sizing: border-box;
 }
 
+/* ----- General ----- */
+
 body {
 	font-family: 'Muli', sans-serif;
-
+	/*background-image: url("https://images.unsplash.com/photo-1518655048521-f130df041f66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");*/
+	/*background-color: #2B2D2F;*/
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
-h1 {}
+h1 {
+	letter-spacing: 5px;
+	font-size: 30px;
+	margin-bottom: 25px;
+	color: #2B2D2F;
+} 
 
-#app {
-}
+/* ----- Game Board ----- */
 
 #game-view {
-	width: 1000px;
+	width: 825px;
 	text-align: center;
 	box-sizing: border-box;
 	justify-content: center;
 	margin: auto;
 }
 
+#game-board {
+	background-color: rgba(255,255,255, 0.75);
+}
+
+/* ----- Navigations ----- */
+
 #game-nav {
 	display: flex;
 	justify-content: space-between;
-	margin: 25px 35px 15px 35px;
+	margin: 0 0 10px 0;
+	border-bottom: 3px solid #ED2939;
+	padding-bottom: 15px;
+	align-items: baseline;	
 }
 
 #bottom-nav{
 	display: flex;
 	justify-content: flex-end;
-	margin: 15px 35px 25px 35px;
+	margin: 15px 0 25px 0;
 }
+
+.button-game-control {
+	background-color: lightgray;
+	border: 2px solid gray;
+	border-radius: 3px;
+	color: #2B2D2F;
+	font: inherit;
+	padding: 5px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 13px;
+}
+
+/* ----- Turn ----- */
+
+#currentTurn {
+	font-size: 18px;
+}
+
+.redTurn {
+	color: #ED2939;
+	border-color: #ED2939;
+}
+
+.blueTurn {
+	color: #2076A1;
+	border-color: #2076A1 !important;
+}
+
+/* ----- Score ----- */
+
+#score {
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+
+/* ----- Card Styling ----- */
 
 .card-button {
 	border: none;
@@ -41,37 +97,61 @@ h1 {}
 	margin: 0;
 	font: inherit;
 	cursor: pointer;
-	width: 18%;
-	height: 10%;
+	width: 17%;
+	height: 5%;
 	justify-content: center;
 }
 
 .card {
-	background: beige;
-	border: 8px solid gray;
-	border-radius: 5px;
-	line-height: 80px;
-	color: black;
-	margin: 5px;
+	background: #E2DCCD;
+	border: 2px solid gray;
+	border-radius: 3px;
+	line-height: 70px;
+	color:  #2B2D2F;
+	margin: 7px;
 	align-items: center;
 	box-sizing: border-box;
+	font-size: 16px;
 }
 
+
+/* ----- Player Card Colours ----- */
+
 .redCard {
-	border-color: red;
+	border-color: #ED2939;
+	background-color: #ED2939;
+	color: #F5F5F5;
 }
 
 .blueCard {
-	border-color: blue;
+	border-color: #2076A1;
+	background-color: #2076A1;
+	color: #F5F5F5;
 }
 
 .neutralCard {
-	background-color: gray;
+	background-color: gray !important;
+	color: #F5F5F5;
 }
 
 .deathCard {
-	background-color: black;
-	color: red;
+	border-color: #2B2D2F;
+	background-color: #2B2D2F;
+	color: #F5F5F5;
+}
+
+/* ----- Code Master Card Colours ----- */
+
+.redCardMaster {
+	border-color: #ED2939;
+}
+
+.blueCardMaster {
+	border-color: #2076A1;
+}
+
+.neutralCardMaster {
+	background-color: #E2DCCD;
 }
 
 .hidden {

@@ -14,27 +14,33 @@
 
 		<div id="game-view">
 
-			<h1>Codenames</h1>
+			<h1>CODENAMES</h1>
 
-			<div id="game-nav">
-				<button v-on:click="clickNewGame()">New Game</button>
-				<span id="currentTurn">{{this.currentTurn}}'s turn</span>
-				<button id="switchTurn" v-on:click="clickSwitchTurn()">Switch Turn</button>
+			<div id="game-nav" class="redTurn">
+				<button class="button-game-control" v-on:click="clickNewGame()">New Game</button>
+				<span id="currentTurn" class="redTurn">{{this.currentTurn}} team's turn</span>
+				<button class="button-game-control" id="switchTurn" v-on:click="clickSwitchTurn()">Switch Turn</button>
 			</div>
 
+			<div id="score">
+				<span id="redScore" class="redTurn">{{this.redCount}}</span> -
+				<span id="blueScore" class="blueTurn">{{this.blueCount}}</span>
+			</div>
 
-			<button
-				class="card-button card"
-				v-for="(card, i) in cards"
-				v-on:click="clickShowCard($event)"
-				v-bind:id="i"
-				v-bind:data-type=card.type
-			>
-				{{card.code}}
-			</button>
+			<div id="game-board">
+				<button
+						class="card-button card"
+						v-for="(card, i) in cards"
+						v-on:click="clickShowCard($event)"
+						v-bind:id="i"
+						v-bind:data-type=card.type
+				>
+					{{card.code}}
+				</button>
+			</div>
 
 			<div id="bottom-nav">
-				<button v-on:click="clickCodeMaster()">Code Master</button>
+				<button class="button-game-control" v-on:click="clickCodeMaster()">Spymaster</button>
 			</div>
 
 		</div>
@@ -65,13 +71,19 @@
 					console.log(cardType);
 					// console.log(this);
 
+					// Get score IDS:
+					let redScore = document.getElementById("redScore");
+					let blueScore = document.getElementById("blueScore");
+
 					if (cardType === "red") {
 						console.log('this card is red');
 						cardDiv.classList.add("redCard")
+						this.redCount = this.redCount - 1;
 					}
 
 					if (cardType === "blue") {
 						cardDiv.classList.add("blueCard");
+						this.blueCount = this.blueCount - 1;
 					}
 
 					if (cardType === "neutral") {
@@ -113,12 +125,37 @@
 							document.getElementById(i).classList.add("deathCard");
 						}
 
+
 					}
 				},
 
 				clickSwitchTurn: function () {
-					(this.currentTurn === Game.blue ) ? (this.currentTurn = Game.red) : (this.currentTurn = Game.blue);
+
+					// (this.currentTurn === Game.blue ) ? (this.currentTurn = Game.red) : (this.currentTurn = Game.blue);
+
+					let currentTurnHeader = document.getElementById('currentTurn');
+					let currentTurnNav = document.getElementById('game-nav');
+
+					if (this.currentTurn === Game.red ) {
+						this.currentTurn = Game.blue;
+						currentTurnHeader.classList.remove("redTurn");
+						currentTurnHeader.classList.add("blueTurn");
+
+						currentTurnNav.classList.remove("redTurn");
+						currentTurnNav.classList.add("blueTurn");
+
+
+					} else if (this.currentTurn === Game.blue ) {
+						this.currentTurn = Game.red;
+						currentTurnHeader.classList.remove("blueTurn");
+						currentTurnHeader.classList.add("redTurn");
+
+						currentTurnNav.classList.remove("blueTurn");
+						currentTurnNav.classList.add("redTurn");
+					}
+
 				},
+
 
 
 			}
