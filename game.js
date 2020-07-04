@@ -15,6 +15,7 @@ class Game {
 		this.shuffle(this.codeNamesArray);
 		this.shuffle(this.typeArray);
 
+		// Select 25 cards from the shuffled list of Codenames and Card Types and insert into Cards Array:
 		for (let i = 0; i < 25; i++) {
 
 			let card = new Card();
@@ -61,7 +62,7 @@ class Game {
 		// } else if (this.blueCount === 0) {
 		// 	this.winner = Game.blue;
 		// 	this.inProgress = false;
-		// } else if ( death card clicked ){ // TODO: Identify the game winner by death care
+		// } else if ( death card clicked ){ // TODO: Identify the game winner by death card
 		// 	(this.currentTurn === "red") ? (this.winner = "blue") : (this.winner = "red");
 		// 	this.inProgress = false;
 		// }
